@@ -86,17 +86,31 @@ function makeCards(array) {
   const following = document.createElement('p');
   const bio = document.createElement('p');
 
+  // add content
+
+  image.src = `${array.data.avatar_url}`;
+  name.textContent = `${array.data.name}`;
+  userName.textContent = `${array.data.login}`;
+  location.textContent = `${array.data.location}`;
+  profile.textContent = `Profile: `;
+  addressLink.textContent = `${array.data.url}`;
+  addressLink.href = `${array.data.url}`;
+  followers.textContent = `Followers: ${array.data.followers}`;
+  following.textContent = `Following: ${array.data.following}`;
+  bio.textContent = `Bio: ${array.data.bio}`;
+
+
   // nest elements
   card.appendChild(image);
   card.appendChild(cardInfo);
-  cardInfo.appendChild(name)
-  cardInfo.appendChild(userName)
-  cardInfo.appendChild(location)
-  cardInfo.appendChild(profile)
-  profile.appendChild(addressLink)
-  cardInfo.appendChild(followers)
-  cardInfo.appendChild(following)
-  cardInfo.appendChild(bio)
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(userName);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  profile.appendChild(addressLink);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
 
   // add classes
 
@@ -105,17 +119,6 @@ function makeCards(array) {
   name.classList.add('name');
   userName.classList.add('username');
 
-  // add content
-
-  image.src = `${array.data.avatar_url}`;
-  addressLink.href = `${array.data.url}`;
-  name.textContent = `${array.data.name}`;
-  userName.textContent = `${array.data.login}`;
-  location.textContent = `${array.data.location}`;
-  addressLink.textContent = `${array.data.url}`;
-  followers.textContent = `Followers: ${array.data.followers}`;
-  following.textContent = `Following: ${array.data.following}`;
-  bio.textContent = `Bio: ${array.data.bio}`;
 
 
 
