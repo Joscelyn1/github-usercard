@@ -3,7 +3,8 @@
            https://api.github.com/users/<your name>
 */
 const followersArray = ['Joscelyn1', 'JarredStanford', 'JankovicSrdjan', 'brudnak', 'paxfeline', 'tetondan', 'dustinmyers', 'justsml',
-'luishrd', 'bigknell'];
+  'luishrd', 'bigknell'
+];
 
 // axios.get('https://api.github.com/users/Joscelyn1')
 //   .then(data => {
@@ -14,16 +15,15 @@ const followersArray = ['Joscelyn1', 'JarredStanford', 'JankovicSrdjan', 'brudna
 //   })
 
 
-  followersArray.forEach(person => {
-    axios.get(`https://api.github.com/users/${person}`)
-      .then(data => {
-        cardContainer.appendChild(makeCards(data));
-      })
-      .catch(error => {
-        console.log('problem', error);
-      })
-  })
-
+followersArray.forEach(person => {
+  axios.get(`https://api.github.com/users/${person}`)
+    .then(data => {
+      cardContainer.appendChild(makeCards(data));
+    })
+    .catch(error => {
+      console.log('problem', error);
+    })
+})
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
    data in order to use it to build your component function 
@@ -55,6 +55,24 @@ const followersArray = ['Joscelyn1', 'JarredStanford', 'JankovicSrdjan', 'brudna
 const cardContainer = document.querySelector('.cards');
 
 function makeCards(array) {
+
+  /*
+<div class="card">
+  <img src={image url of user} />
+  <div class="card-info">
+    <h3 class="name">{users name}</h3>
+    <p class="username">{users user name}</p>
+    <p>Location: {users location}</p>
+    <p>Profile:  
+      <a href={address to users github page}>{address to users github page}</a>
+    </p>
+    <p>Followers: {users followers count}</p>
+    <p>Following: {users following count}</p>
+    <p>Bio: {users bio}</p>
+  </div>
+</div>
+
+*/
   // make elements
   const card = document.createElement('div');
   const image = document.createElement('img');
@@ -106,23 +124,7 @@ function makeCards(array) {
 
 }
 
-/*
-<div class="card">
-  <img src={image url of user} />
-  <div class="card-info">
-    <h3 class="name">{users name}</h3>
-    <p class="username">{users user name}</p>
-    <p>Location: {users location}</p>
-    <p>Profile:  
-      <a href={address to users github page}>{address to users github page}</a>
-    </p>
-    <p>Followers: {users followers count}</p>
-    <p>Following: {users following count}</p>
-    <p>Bio: {users bio}</p>
-  </div>
-</div>
 
-*/
 
 /* List of LS Instructors Github username's: 
   tetondan
